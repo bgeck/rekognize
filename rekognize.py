@@ -8,8 +8,8 @@ but also gender, race, age, and even a "beauty" score, I examine how arbitrary d
 into systems could very easily fall down a slippery slope and cause groups to be
 discriminated against.
 """
-import sys
 import json
+import sys
 import time
 from base64 import b64encode
 
@@ -20,7 +20,8 @@ from SimpleCV import Camera, Display
 from pillow import (Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont,
                     ImageOps)
 
-# when running this project, pass in the key and secret via command line. Little more secure.
+# when running this project, pass in the key and secret via command line.
+# Little more secure.
 REKOGNITION_KEY = sys.argv[0]
 REKOGNITION_SECRET = sys.argv[1]
 URL = "http://rekognition.com/func/api/"
@@ -144,6 +145,7 @@ def display_image(image_file, data):
 def process_image(image_file):
     """
     Send image to Rekognize and return results.
+
     :param image_file: - The image file to process.
     :type image_file: str
     """
@@ -168,6 +170,7 @@ def process_image(image_file):
 def determine_sex(found_sex):
     """
     Determine sex from number returned by Rekognize.
+
     :param found_sex: - The number representing sex.
     :type image: int
     """
@@ -183,6 +186,7 @@ def determine_sex(found_sex):
 def run_image_tool(image_file):
     """
     Run the Tool.
+
     :param image_file: - The image file to use.
     :type image: str
     """
