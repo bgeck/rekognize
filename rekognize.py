@@ -138,7 +138,7 @@ def display_image(image_file, data):
     step6 = Image.alpha_composite(step5, current_rect)
     final_image = Image.alpha_composite(step6, current_text)
     final_image.show()
-    run_image_tool('image.jpg')
+    run_image_tool(sys.argv[2])
     return
 
 
@@ -196,5 +196,5 @@ def run_image_tool(image_file):
     display_image(transformed_image, image_data)
     return
 
-
-run_image_tool('image.jpg')
+# When running, pass in image file name to use as third argument.
+run_image_tool(sys.argv[2])
