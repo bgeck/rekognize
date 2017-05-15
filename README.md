@@ -1,7 +1,7 @@
-# rekognize
+# Rekognize
 Interactive art experiment that examines social issues around AI and machine learning.
 
-#requirements
+# Requirements
 This project is designed for Python 2.7 or before. 
 You will need the following installed:
 
@@ -11,7 +11,7 @@ You will need the following installed:
 For me on Mac OSX, that means simply
 ```brew install opencv```
 
-## Python Speicifc - installable using pip.
+## Python Specifc - installable using pip
 ```pip install scipy numpy Pillow pygame requests SimpleCV svgwrite```
 
 
