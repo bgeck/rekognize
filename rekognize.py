@@ -4,9 +4,9 @@ Interactive art experiment that examines social issues around AI and machine lea
 This project takes a look at some of the new issues arising in machine learning and AI tech,
 including problems such as accidental racism and sexism caused by arbitrary machine decisions.
 By using the Rekognize API, which detects not only expression in faces,
-but also gender, race, age, and even a "beauty" score, I examine how arbitrary decisions programmed
-into systems could very easily fall down a slippery slope and cause groups to be
-discriminated against.
+but also gender, race, age, and even a "beauty" score,
+I examine how arbitrary decisions programmed into systems could very easily
+fall down a slippery slope and cause groups to be discriminated against.
 """
 import json
 import sys
@@ -15,17 +15,16 @@ from base64 import b64encode
 
 import pygame
 import requests
+from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont,
+                 ImageOps)
 from SimpleCV import Camera, Display
-
-from pillow import (Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont,
-                    ImageOps)
 
 # when running this project, pass in the key and secret via command line.
 # Little more secure.
 REKOGNITION_KEY = sys.argv[0]
 REKOGNITION_SECRET = sys.argv[1]
 URL = "http://rekognition.com/func/api/"
-WEBCAM = Camera()
+WEBCAM = Camera(0)
 VIDEO_DISPLAY = Display()
 
 
@@ -38,7 +37,6 @@ def play_video(image_file):
     """
     while VIDEO_DISPLAY.isNotDone():
         webcam_image = WEBCAM.getImage().scale(800, 450).show()
-
         if VIDEO_DISPLAY.mouseLeft:
             webcam_image.save(image_file)
             break
@@ -138,7 +136,7 @@ def display_image(image_file, data):
     step6 = Image.alpha_composite(step5, current_rect)
     final_image = Image.alpha_composite(step6, current_text)
     final_image.show()
-    run_image_tool(sys.argv[2])
+    run_image_tool(str(sys.argv[2]))
     return
 
 
@@ -196,5 +194,6 @@ def run_image_tool(image_file):
     display_image(transformed_image, image_data)
     return
 
+
 # When running, pass in image file name to use as third argument.
-run_image_tool(sys.argv[2])
+run_image_tool(str(sys.argv[2]))
