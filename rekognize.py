@@ -17,12 +17,13 @@ import pygame
 import requests
 from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont,
                  ImageOps)
+from SimpleCV import Image as Image2
 from SimpleCV import Camera, Display
 
 # when running this project, pass in the key and secret via command line.
 # Little more secure.
-REKOGNITION_KEY = sys.argv[0]
-REKOGNITION_SECRET = sys.argv[1]
+REKOGNITION_KEY = sys.argv[1]
+REKOGNITION_SECRET = sys.argv[2]
 URL = "http://rekognition.com/func/api/"
 WEBCAM = Camera(0)
 VIDEO_DISPLAY = Display()
@@ -136,7 +137,7 @@ def display_image(image_file, data):
     step6 = Image.alpha_composite(step5, current_rect)
     final_image = Image.alpha_composite(step6, current_text)
     final_image.show()
-    run_image_tool(str(sys.argv[2]))
+    run_image_tool(str(sys.argv[3]))
     return
 
 
@@ -196,4 +197,4 @@ def run_image_tool(image_file):
 
 
 # When running, pass in image file name to use as third argument.
-run_image_tool(str(sys.argv[2]))
+run_image_tool(str(sys.argv[3]))
