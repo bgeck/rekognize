@@ -17,4 +17,5 @@ For me on Mac OSX, that means simply
 
 ## Note
 Sometimes SimpleCV has an issue where it is missing it's logo file. This is the fix for that:
+
 ```mkdir /usr/local/lib/python2.7/site-packages/SimpleCV/sampleimages/ && cp simplecv.png /usr/local/lib/python2.7/site-packages/SimpleCV/sampleimages/```
