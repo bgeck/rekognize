@@ -8,6 +8,9 @@ You will need the following installed:
 ## General dependencies
 ```OpenCV```
 
+For me on Mac OSX, that means simply
+```brew install opencv```
+
 ## Python Speicifc - installable using pip.
 ```pip install scipy numpy Pillow pygame requests SimpleCV svgwrite```
 
